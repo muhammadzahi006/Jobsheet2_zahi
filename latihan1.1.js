@@ -8,3 +8,23 @@ console.log(calculateDiscountedPrice(100000, 20)); // 80000
 console.log(calculateDiscountedPrice(50000, 10));  // 45000
 
 // Latihan 1.2
+
+const cart = [
+  { title: "Laptop", price: 1000, discountPercent: 10 },
+  { title: "Mouse", price: 20, discountPercent: 5 },
+  { title: "Keyboard", price: 50, discountPercent: 0 }
+];
+
+function applyDiscounts(cart) {
+  const result = [];
+  for (const item of cart) {
+    const finalPrice = calculateDiscountedPrice(item.price, item.discountPercent);
+    result.push({
+      title: item.title,
+      originalPrice: item.price,
+      discountPercent: item.discountPercent,
+      finalPrice: finalPrice
+    });
+  }
+  return result;
+}
